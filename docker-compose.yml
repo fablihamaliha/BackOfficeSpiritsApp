@@ -1,0 +1,77 @@
+version: '3'
+
+services:
+  mysqldb:
+    image: mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_URL: "mongodb://localhost:27017/backofficespirits"
+
+  backofficeauthservice:
+    image: arbenson/backofficeauthservice
+
+    depends_on:
+      - mysqldb
+    restart: always
+    ports:
+      - 8000:8000
+    environment:
+      MYSQL_URL: "jdbc:mysql://mysqldb:3306/authservicedb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "root"
+
+
+  backofficeinventoryservice:
+    image: arbenson/backofficeinventoryservice
+    depends_on:
+      - mongodb
+    #    restart: always
+    ports:
+      - 8083:8083
+    environment:
+      MONGO_URL: "mongodb://mongodb/backofficespirits"
+
+
+
+
+  backofficeorderservice:
+    image: arbenson/backofficeorderservice
+    #    network_mode: host
+    depends_on:
+      - mongodb
+    restart: always
+    ports:
+      - 9095:9095
+    environment:
+      MONGO_URL: "mongodb://mongodb/backofficespirits"
+
+
+
+  backofficeuserservice:
+    image: arbenson/backofficeuserservice
+    depends_on:
+      - mongodb
+    restart: always
+    ports:
+      - 9010:9010
+    environment:
+      MONGO_URL: "mongodb://mongodb/backofficespirits"
+
+
+  backofficeangular: # The name of the service
+    image: arbenson/backofficeangular
+#    container_name: angularcontainer  # Container name
+#    build: ./backofficespirits # Location of our Dockerfile
+#    volumes: # Volume binding
+#      - './backofficespirits:/usr/src/app'
+    ports:
+      - 4200:4200 # Port mapping
+#    command: >
+#      bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"
