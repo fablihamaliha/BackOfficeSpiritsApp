@@ -1,0 +1,50 @@
+.box-desc{
+    margin:0;
+}
+
+.qty-input{
+    min-width: 50px;
+    max-width: 50px;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.comment-form{
+    min-width: 150px;
+    max-width: 700px;
+    width: 100%;
+}
+
+.comment-text{
+    width: 100%;
+}
+
+
+.validation-msg{
+    color:red;
+}
+
+.product-img{
+    width:180px;
+    height: 180px;
+    border-radius: 100px;
+    float:right;
+    
+}
+.title {
+    color: white;
+}
+
+.btn-purple{
+    background-color: black;
+    color:white;
+  }
+  .courgette-font{
+    font-family: 'Courgette', cursive;
+    font-size: xx-large;
+    /* font-color: blue; */
+}
+
+
+

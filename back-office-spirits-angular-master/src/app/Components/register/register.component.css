@@ -1,0 +1,20 @@
+.main-div mat-card {
+    padding: 0px ;
+    /* margin-top: 100px; */
+    margin-bottom: 60px;
+  
+
+}
+
+.loginform{
+    padding: 40px;
+
+    
+}
+.main-div{
+    margin-top: 50px;
+}
+.mat-toolbar.mat-primary {
+    background: black;
+    color: #fff;
+  }

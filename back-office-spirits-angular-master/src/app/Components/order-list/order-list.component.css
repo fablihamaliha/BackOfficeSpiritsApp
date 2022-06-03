@@ -1,0 +1,61 @@
+/* @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+    body{
+        margin-top:20px!important;
+        background:#f8f8f8!important;
+    }
+    .fa-photo
+    {
+        opacity: 0.8;
+    }
+    .itemdiv
+    {
+        width: 35px; height: 35px; border-radius: 3px;
+    }
+    .btn-outline-secondary {
+    color: #6c757d!important;
+    border-color: #6c757d!important;
+    }
+    .btn-outline-secondary:hover {
+    color: #fff!important;
+    border-color: #ffffff!important;
+    } */
+    /* h1{
+        width:900px;
+        margin: 0 auto;
+       
+        text-align: center;
+     } */
+
+     /* .form-field{
+         background-color: red;
+     } */
+
+  .title {
+      color: white;
+  }
+    .cookie-font{
+        font-family: 'Cookie', cursive;
+    }
+    .courgette-font{
+        font-family: 'Courgette', cursive;
+        font-size: xx-large;
+    }
+    
+
+    .completed{
+       color: green;
+    }
+
+    .pending{
+        /* border: 2px solid red; */
+        color: red;
+    }
+   
+
+    /* .floatRight{float:right;margin-left:20px;} */
+  /* .main-app{
+    background-image: url("/assets/images/home/home1.jpg")
+  } */
+  /* .container{
+    background-image: url("/assets/images/home/cartoon.jpg")
+} */

@@ -1,0 +1,29 @@
+
+
+
+    <mat-expansion-panel hideToggle class="card-color border">
+        <mat-expansion-panel-header>
+          <!-- Title -->
+          <mat-panel-title>
+            <img class="product-img" src="{{ item.imgUrl}}" alt="img">
+            {{ item.productSku }}
+          </mat-panel-title>
+          <!-- Description -->
+          <mat-panel-description>
+            {{ item.productName }} | Quantity: {{ totalInventory }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <section >
+            <!-- Warehouse Breakdown -->
+            <article>
+                <h1>Warehouse Breakdown</h1>
+                <ul *ngFor="let w of warehouseList">
+                  <li>Warehouse {{ w.warehouseId}} - {{ w.warehouseName }}: {{ w.qty }}</li>
+                </ul>
+            </article>
+        
+        </section>
+      </mat-expansion-panel>
+
+

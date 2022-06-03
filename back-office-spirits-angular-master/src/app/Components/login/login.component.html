@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row no-gutter">
+      <!-- The image half -->
+      <div class="col-md-6 d-none d-md-flex bg-image"></div>
+      <!-- The content half -->
+      <div class="col-md-6 bg-light">
+          <div class="login d-flex align-items-center py-5">
+              <!-- Demo content-->
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-10 col-xl-7 mx-auto">
+<div fxLayoutAlign="center center" fxFlexFill class="main-div"> 
+<mat-card fxFlex="90">
+ 
+  <mat-toolbar color ="primary">
+    <mat-toolbar-row>
+      <span class="span">Login</span>
+    </mat-toolbar-row></mat-toolbar>
+  <form name="userprofile" fxLayoutAlign="stretch" fxLayout="column" class = "loginform" (submit)="verifylogin()">
+    <mat-form-field>
+     
+      <input matInput placeholder="Please enter username" value="username" [formControl] = "username">
+    </mat-form-field>
+    
+    <mat-form-field >
+     
+      <input matInput type="password" placeholder="Please enter password" [formControl]="password">
+    </mat-form-field>
+    <button mat-raised-button type ="submit">Login</button>
+    
+    
+    
+  </form>
+  <div class="card-footer px-lg-3 py-lg-4 ">
+    
+   
+    <div class="text-sm text-muted">Don't have an account? <button mat-raised-button (click)="goToRegister()">Register</button></div>
+ 
+  </div>
+
+  
+</mat-card>
+</div>
+
+<!-- <button mat-raised-button type ="onSubmit">Register</button> -->
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,106 @@
+
+<section class="order-detail-wrapper pb-5">
+
+    <section *ngIf="!isAdmin">
+
+
+        <mat-card class="card-color"><h1>You are not authorized to create orders</h1></mat-card>
+        
+
+
+    </section>
+
+
+    <section *ngIf="isAdmin">
+        <article>
+           
+            <!-- Order Details Form -->
+            <mat-card class="shadow text-center card-color">
+                <h1 class="text-center courgette-font title">NEW ORDER </h1>
+                <form [formGroup]="orderDetailForm" class="form m-auto">
+                    <mat-form-field class="full-width" appearance="fill">
+                      <mat-label>Order #</mat-label>
+                      <input matInput name="ordernumber" placeholder="Ex. QC213_211006_0102110101_FR" [(ngModel)]="order.order_number" formControlName="orderNumber" >
+                    </mat-form-field>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Warehouse Id</mat-label>
+                        <input matInput name="warehouseid" placeholder="The warehouse the order is going to" [(ngModel)]="order.warehouse_id"formControlName="warehouseId"  >
+                    </mat-form-field>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Gross Weight (Kg)</mat-label>
+                        <input matInput type="number" name="grossweight" placeholder="Ex. 25" [(ngModel)]="order.gross_weight" formControlName="grossweight" >
+                    </mat-form-field>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Truck #</mat-label>
+                        <input matInput name="trucknum" placeholder="Ex. Qc_8849_AZMG_001939" [(ngModel)]="order.truck_number" formControlName="trucknum" >
+                    </mat-form-field>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Driver Name</mat-label>
+                        <input matInput name="driver" placeholder="Ex. John Doe" [(ngModel)]="order.driver" formControlName="drivername" >
+                    </mat-form-field> 
+                  </form>
+            </mat-card> 
+       </article>
+    
+        <br>
+        <hr>  
+        <br>
+    
+        <!-- Boxes in order -->
+        <mat-card class="card-color">
+        <section >
+            <h1 class="text-center courgette-font">  Boxes</h1>
+            <form [formGroup]="productForm">
+            <article *ngFor="let box of order.list_box;let indexOfelement=index;">
+            
+            <mat-form-field >
+                <mat-label>Product Sku</mat-label>
+                <input matInput name="sku" placeholder="Product Sku" [(ngModel)]="box.sku" formControlName="sku">
+
+           </mat-form-field>
+           <mat-form-field>
+            <mat-label>Quantity of Boxes</mat-label>
+            <input matInput type="number" name="qty_of_boxes" placeholder="Quantity of Boxes" [(ngModel)]="box.qty_of_boxes" formControlName="qtyofboxes">
+            
+           </mat-form-field>
+           <mat-form-field>
+            <mat-label>Product Name</mat-label>
+            <input matInput name="productname" placeholder="Product Name" [(ngModel)]="box.product_name" formControlName="productname">
+            
+           </mat-form-field>
+           <mat-form-field>
+            <mat-label>Box Type</mat-label>
+            <input matInput name="boxtype" placeholder="Box Type"  [(ngModel)]="box.box_type" formControlName="boxtype">
+           
+           </mat-form-field>
+           <mat-form-field>
+            <mat-label>Quantity per Box</mat-label>
+            <input matInput type="number" name="qty_per_box" placeholder="Quantity Per Box"  [(ngModel)]="box.qty_per_box" formControlName="qtyperbox">
+           </mat-form-field>
+
+           <mat-form-field>
+            <mat-label>Image</mat-label>
+            <input matInput name="img" placeholder="ex. bottle1.jpg" [(ngModel)]="box.imgUrl" formControlName="img">
+           </mat-form-field>
+           <button class="btn btn-danger btn-sm" (click)="removeBox(indexOfelement)">X</button>
+        
+        </article>
+</form>
+
+
+        </section>    
+       
+        <div class="text-center">
+
+            <button (click)="addBox()" class="btn btn-purple btn-sm ">Add</button>
+        </div>
+
+        <div class="text-center">
+            <p class="validation-msg">{{message}}</p>
+            <button (click)="submitOrder()" type="submit"  class="btn btn-purple">Submit Order</button>
+        </div>
+    </mat-card>
+    </section> 
+
+     
+    <!-- </section>  -->

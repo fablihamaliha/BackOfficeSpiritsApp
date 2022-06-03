@@ -1,0 +1,117 @@
+
+<section *ngIf="!canView">
+    <h2>Access Denied. You do not have access to this order</h2>
+</section>
+
+
+<section  *ngIf="canView" class="order-detail-wrapper pb-5">
+
+<section>
+    <article>
+        <h1 class="text-center courgette-font title"> ORDER DETAILS </h1>
+        <mat-card class="shadow card-color">
+            <mat-card-title>Order # {{ order.order_number}}</mat-card-title> 
+            <mat-card-subtitle>Status: {{order.orderStatus}}</mat-card-subtitle>  
+            <mat-card-content>
+            <!-- Order details -->
+            <ul>
+                <li>Gross Weight (kg): {{order.gross_weight}}</li>
+                <li>Truck number: {{ order.truck_number }}</li>
+                <li>Creation Date: {{ order.creation_date}}</li>
+                <li>Driver: {{ order.driver }}</li>
+                <li>Warehouse ID: {{ order.warehouse_id}}</li>
+                <li>Recieved By: {{ order.receivedBy}}</li>
+                <li>Reception Signature: {{order.receptionSig}}</li>
+                <li>Reception Date: {{ order.reception_date}}</li>
+            
+            </ul>
+            </mat-card-content> 
+            
+        </mat-card>
+        
+   </article>
+
+    <br>
+    <hr>  
+    <br>
+
+    <!-- Display each box in the order -->
+    <section >
+        <h1 class="text-center courgette-font title"> ORDER CONTENT </h1>
+   <!-- For each box in the order -->
+   
+          <mat-card class="my-2 shadow card-color" *ngFor="let box of order.list_box"  >
+
+        <mat-checkbox [(ngModel)]="box.recieved" color="primary">
+            <mat-card-title class="mb-0 mt-1">{{box.sku}} {{box.product_name}} {{box.box_type}} ({{box. qty_of_boxes}})</mat-card-title>
+            
+        </mat-checkbox>
+        <!-- <mat-card-subtitle>Quantity of Boxes: {{box. qty_of_boxes}}</mat-card-subtitle>
+        <mat-card-subtitle>Box Type: {{box.box_type}}</mat-card-subtitle> -->
+        <mat-card-subtitle>Quantity Per Box: {{box.qty_per_box}}</mat-card-subtitle>
+        <!-- Card content -->
+            <mat-card-content>
+                <article class="row">
+
+
+                    <div class="col-9">
+                            <!-- Quantity Input -->
+                        <div class="mt-3">
+                            
+                            <mat-form-field class="" appearance="fill">
+                                <mat-label>Recieving Box Quantity</mat-label>
+                                <input name="box"  type="number" matInput [value]="box.qty_of_boxes" [max]="box.qty_of_boxes" [min]="0"  [(ngModel)]="box.recievingQty" >
+                            </mat-form-field>
+                        </div>
+
+                        <!-- Comment -->
+                        <div>
+                            <form class="comment-form">
+                                <mat-form-field class="comment-text" appearance="fill">
+                                    <mat-label>Comment</mat-label>
+                                    <textarea [required]="(box.recievingQty != box.qty_of_boxes && (box.comment=='' || box.comment==null)) || box.recieved==false" name="boxinput"  matInput placeholder="Comment" [(ngModel)]="box.comment" ></textarea>
+                                </mat-form-field>
+                                <p class="validation-msg" *ngIf="box.recievingQty != box.qty_of_boxes && box.comment==''">*Comment required if recieving quantity is less than Order quantity</p>
+
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- product image -->
+                    <div class="col-3">
+                        <img class="product-img mr-0" src="{{box.imgUrl}}" alt="productImg">
+                    </div>
+                </article>
+             
+
+            </mat-card-content>
+         </mat-card>
+        
+    </section>
+<br>
+<hr>
+<br>
+    <!-- Signature and submit button -->
+    <section>
+
+        <mat-card class="my-2 shadow card-color">
+             <div>
+                <mat-card-title> Reception Signature </mat-card-title>
+                <mat-card-subtitle>Please upload an image of your signature</mat-card-subtitle>
+                <input  name="boximg"  type="file"  (change)="uploadImage($event)" />
+            </div>
+      
+        
+        </mat-card>
+         <!-- Button to accept -->
+         <div >
+            <mat-card *ngIf="message" class="validation-msg card-color">{{message}}</mat-card>
+            <button (click)="acceptOrder()" class="btn btn-purple">Accept Order</button>
+           
+       </div>
+    </section>
+
+
+</section>
+
+</section>

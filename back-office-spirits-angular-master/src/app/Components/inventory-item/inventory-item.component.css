@@ -1,0 +1,9 @@
+.product-img{
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
+}
+
+.border{
+    border: 2px solid black;
+}

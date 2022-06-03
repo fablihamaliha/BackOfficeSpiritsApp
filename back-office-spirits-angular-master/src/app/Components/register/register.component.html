@@ -1,0 +1,22 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div"> 
+    <mat-card fxFlex="27">
+     
+      <mat-toolbar color ="primary">Register</mat-toolbar>
+      <form name="userprofile" fxLayoutAlign="stretch" fxLayout="column" class = "loginform" (submit)="registerUser()">
+        <mat-form-field>
+          <input matInput name="username" placeholder="Please enter username" [(ngModel)]="user.userName">
+        </mat-form-field>
+        
+        <mat-form-field >
+          <input matInput type="password" name="userpassword"  placeholder="Please enter password" [(ngModel)]="password" >
+        </mat-form-field>
+        <mat-form-field >
+            <input matInput name="warehouseid"  placeholder="Warehouse ID" [(ngModel)]="warehouse.warehouseid">
+          </mat-form-field>
+          <mat-form-field >
+            <input matInput name="warehousename" placeholder="Warehouse Name" [(ngModel)]="warehouse.warehousename">
+          </mat-form-field>
+        <button mat-raised-button type ="submit">Register</button>
+      </form>
+    </mat-card>
+    </div>

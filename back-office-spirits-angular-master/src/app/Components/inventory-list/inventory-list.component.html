@@ -1,0 +1,30 @@
+
+
+<div class="inventory-list">
+    <h1 class="text-center courgette-font title">INVENTORY</h1>
+
+    <div>
+            <!-- <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Search for Products" value="" [(ngModel)]="searchtext">
+      </mat-form-field> -->
+      <div class="input-group rounded search-wrapper mb-3">
+
+        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" [(ngModel)]="searchtext" />
+
+        <span class="input-group-text border-0" id="search-addon">
+
+          <mat-icon >search</mat-icon>
+
+        </span>
+
+      </div>
+    </div>
+
+
+    <mat-accordion>
+        <app-inventory-item  *ngFor="let product of productsList  | filter: searchtext " [item]="product"></app-inventory-item>
+    </mat-accordion>
+    
+
+</div>

@@ -1,0 +1,47 @@
+
+
+ .login,
+ .image {
+   min-height: 80vh;
+ }
+ .bg-image {
+    background-image: url('/assets/images/login/welcome.png');
+    background-size: cover;
+    background-position: center center;
+  }
+.main-div mat-card {
+    padding: 0px ;
+    /* margin-top: 100px; */
+    /* margin-bottom: 60px; */
+  
+
+  }
+ .loginform{
+    padding: 40px; 
+
+    
+}  
+ .main-div{
+    margin-top: 50px;
+} 
+.myimage{
+    margin-left: 10px;
+}  
+.mat-toolbar.mat-primary {
+    background: black;
+    color: #fff;
+  }
+  .span {
+    margin: auto;
+}
+.button{
+    margin-left :180px;
+}
+.example{
+    flex: 1 1 auto;
+}
+
+.text-sm {
+    font-size: .7875rem !important;
+    }
+  

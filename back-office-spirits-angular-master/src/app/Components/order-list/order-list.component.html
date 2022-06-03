@@ -1,0 +1,130 @@
+
+<!-- <div>
+  <h4>Search for the order</h4>
+  <mat-form-field class="example-full-width" appearance="fill">
+<mat-label>Search</mat-label>
+<input matInput placeholder="Search for Products" value="" [(ngModel)]="searchtext">
+</mat-form-field>
+</div> -->
+<!--Test-->
+ 
+
+    <!-- <div class="container-fluid">
+      <div class="row no-gutter"> -->
+          <!-- The image half -->
+    <!--Newww-->
+    <!-- <div class=" container"> -->
+      <!--new-->
+      <div class="mb-5">
+        <div class="title">
+  <h1 class="courgette-font text-center title" >Orders For Today</h1>
+         </div>
+  <!-- <div class="col-md-4 col-xl-1">
+    <div class="image-container">
+        <img class="img-fluid" src="assets/images/home/cartoon.png" alt="alternative" />
+    </div> 
+  </div>   -->
+  <!--New-->
+ 
+  <div class="row flex-lg-nowrap"> 
+    <div class="col-12 col-lg-3 mb-3">
+
+
+     
+<!--    
+      <div class="column ">
+        <img  class="floatleft" src="/assets/images/home/cartoon.png" alt="" height="200">
+    </div> -->
+         
+  
+     
+      
+      <div class="input-group ">
+       
+        <div>
+
+       
+
+          <div class="input-group rounded">
+
+            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" [(ngModel)]="searchtext" />
+    
+            <span class="input-group-text border-0" id="search-addon">
+    
+              <mat-icon >search</mat-icon>
+              
+    
+            </span>
+         
+    
+          </div>
+
+         
+        </div>
+      </div>
+    
+     </div>
+</div>
+
+<!-- <div class="row"> -->
+
+<!-- --------------------------------------- -->
+   <!-- <div class="mb-5"> -->
+                    <mat-accordion >
+
+                    <mat-expansion-panel hideToggle class="card-color ">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          <!-- This is the expansion title -->
+                          Order Completion Status
+                        </mat-panel-title>
+                        <mat-panel-description class="completed">
+                          <!-- This is a summary of the content -->
+                          Completed orders 
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+                      <!-- <p>This is the primary content of the panel.</p> -->
+                      <div *ngFor="let element of list_order | orderfilter:searchtext">
+                        <div *ngIf="element.orderStatus == 'COMPLETED'">
+                          <!-- <span>{{element.order_number}}</span> -->
+                          <mat-card>
+                          <a  (click)="getOrderDetails(element.order_number)">{{element.order_number}} | Warehouse: {{element.warehouse_id}}</a> 
+                        </mat-card>
+                        </div>
+                      </div>
+                    </mat-expansion-panel>
+
+
+                    <!-- ------------------------- -->
+                    <mat-expansion-panel hideToggle class="card-color ">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          <!-- This is the expansion title -->
+                          Order Completion Status
+                        </mat-panel-title>
+                        <mat-panel-description class="pending">
+                          <!-- This is a summary of the content -->
+                          Pending orders 
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+                      <!-- <p>This is the primary content of the panel.</p> -->
+                      <div *ngFor="let element of list_order | orderfilter : searchtext">
+                        <div *ngIf="element.orderStatus == 'PENDING'">
+                          <!-- <span>{{element.order_number}}</span> -->
+                          <mat-card>
+                          <a  (click)="getOrderDetails(element.order_number)">{{element.order_number}} | Warehouse: {{element.warehouse_id}}</a> 
+                           </mat-card>
+                        </div>
+                      </div>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                <!-- </div> -->
+<!-- </div> 
+    </div>
+     -->
+    </div>
+    <!-- </div> -->
+
+
+     <!--Tesrr-->
+     
